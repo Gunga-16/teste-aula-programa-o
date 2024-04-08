@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     color: #333;
-    margin: 20px; /* Adiciona margens ao redor do site */
+    margin: 20px;
     padding: 0;
 }
 
@@ -22,12 +22,12 @@ h1 {
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza os campos */
+    align-items: center;
 }
 
 .texto__paragrafo {
-    font-size: 18px; /* Aumenta o tamanho dos labels */
-    margin-bottom: 10px; /* Ajusta a margem inferior dos labels */
+    font-size: 18px;
+    margin-bottom: 10px;
 }
 
 .container__input {
@@ -44,6 +44,10 @@ button {
     cursor: pointer;
 }
 
+button.deletar {
+    background-color: #dc3545; /* Vermelho */
+}
+
 button:hover {
     background-color: #0056b3;
 }
@@ -52,21 +56,23 @@ button:hover {
     margin-top: 20px;
 }
 
-#listaObjetivos button {
-    display: block;
-    margin-bottom: 10px;
-    background-color: #0056b3;
-}
-
-.aba-conteudo {
-    display: none;
+#listaObjetivos div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ccc;
+    background-color: #f8f9fa; /* Fundo cinza claro */
+    margin-bottom: 5px;
     border-radius: 5px;
-    margin-top: 20px;
 }
 
-.ativa {
-    display: block;
+#listaObjetivos div span {
+    color: #007bff; /* Azul */
+}
+
+#listaObjetivos div button {
+    background-color: transparent;
+    border: none;
+    color: #dc3545; /* Vermelho */
+    cursor: pointer;
 }
