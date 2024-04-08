@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     color: #333;
-    margin: 0;
+    margin: 20px; /* Adiciona margens ao redor do site */
     padding: 0;
 }
 
@@ -26,8 +26,8 @@ h1 {
 }
 
 .texto__paragrafo {
-    font-size: 14px; /* Tamanho reduzido dos labels */
-    margin-bottom: 5px;
+    font-size: 18px; /* Aumenta o tamanho dos labels */
+    margin-bottom: 10px; /* Ajusta a margem inferior dos labels */
 }
 
 .container__input {

@@ -1,6 +1,3 @@
-const botoes = document.querySelectorAll('.objetivos');
-const texto = document.querySelectorAll('.aba-conteudo');
-
 const adicionarBotao = document.getElementById('adicionar');
 const listaObjetivos = document.getElementById('listaObjetivos');
 
@@ -15,13 +12,12 @@ adicionarBotao.onclick = function() {
     listaObjetivos.appendChild(novoObjetivo);
 
     novoObjetivo.onclick = function() {
+        const index = Array.from(listaObjetivos.children).indexOf(novoObjetivo);
         for (let j = 0; j < botoes.length; j++) {
             botoes[j].classList.remove('ativo');
             texto[j].classList.remove('ativa');
         }
         novoObjetivo.classList.add('ativo');
-        // Aqui você pode encontrar o índice do novo botão na lista de botões
-        let index = Array.from(listaObjetivos.children).indexOf(novoObjetivo);
         texto[index].classList.add('ativa');
     }
 }
