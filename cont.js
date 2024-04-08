@@ -12,7 +12,7 @@ window.onload = function() {
 function criarObjetivoElemento(objetivo) {
     const novoObjetivo = document.createElement('div');
     novoObjetivo.classList.add('objetivos');
-    novoObjetivo.innerHTML = `<span>${objetivo}</span><span class="deletar">x</span>`;
+    novoObjetivo.innerHTML = `<span>${objetivo}</span><button class="deletar">Deletar</button>`;
     
     novoObjetivo.querySelector('.deletar').onclick = function() {
         removerObjetivo(objetivo);
