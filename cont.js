@@ -1,3 +1,6 @@
+const adicionarBotao = document.getElementById('adicionar');
+const listaObjetivos = document.getElementById('listaObjetivos');
+
 window.onload = function() {
     const objetivos = JSON.parse(localStorage.getItem('objetivos')) || [];
     objetivos.forEach(objetivo => {
