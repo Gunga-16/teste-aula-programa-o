@@ -1,0 +1,73 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+span{
+    color: red;
+}
+a{
+    color:aqua;
+}
+.contagem{
+    background-color:white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+button {
+    padding: 20px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border : none;
+    border-radius: 3px;
+    cursor: pointer;
+
+}
+
+button:hover{
+    background-color: #4281c4;
+
+}
+
+.objetivos {
+    padding: 20px 10px;
+    background-color: red;
+    color: #fff;
+    border : none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 20px;
+
+}
+.ativo{
+    background-color: green;
+    color:#fff;
+    border-bottom: 3px solid rgb(221, 255, 0);
+}
+
+.container__campo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.texto__paragrafo {
+    color: #FFF;
+    font-family: 'Inter';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.aba-conteudo {
+    display: none;
+
+}
+
+.ativa{
+    display: block;
+    color: black;
+}
