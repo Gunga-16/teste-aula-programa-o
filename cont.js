@@ -4,20 +4,31 @@ const listaObjetivos = document.getElementById('listaObjetivos');
 window.onload = function() {
     const objetivos = JSON.parse(localStorage.getItem('objetivos')) || [];
     objetivos.forEach(objetivo => {
-        const novoObjetivo = document.createElement('div');
-        novoObjetivo.classList.add('objetivos');
-        novoObjetivo.innerHTML = `<span>${objetivo}</span><button class="deletar">x</button>`;
+        const novoObjetivo = criarObjetivoElemento(objetivo);
         listaObjetivos.appendChild(novoObjetivo);
-
-        novoObjetivo.querySelector('.deletar').onclick = function() {
-            const index = objetivos.indexOf(objetivo);
-            if (index !== -1) {
-                objetivos.splice(index, 1);
-                localStorage.setItem('objetivos', JSON.stringify(objetivos));
-                novoObjetivo.remove();
-            }
-        }
     });
+}
+
+function criarObjetivoElemento(objetivo) {
+    const novoObjetivo = document.createElement('div');
+    novoObjetivo.classList.add('objetivos');
+    novoObjetivo.innerHTML = `<span>${objetivo}</span><span class="deletar">x</span>`;
+    
+    novoObjetivo.querySelector('.deletar').onclick = function() {
+        removerObjetivo(objetivo);
+        novoObjetivo.remove();
+    }
+
+    return novoObjetivo;
+}
+
+function removerObjetivo(objetivo) {
+    const objetivos = JSON.parse(localStorage.getItem('objetivos')) || [];
+    const index = objetivos.indexOf(objetivo);
+    if (index !== -1) {
+        objetivos.splice(index, 1);
+        localStorage.setItem('objetivos', JSON.stringify(objetivos));
+    }
 }
 
 adicionarBotao.onclick = function() {
@@ -25,21 +36,10 @@ adicionarBotao.onclick = function() {
     const objetivo = document.getElementById('objetivo').value;
     const tempo = document.getElementById('tempo').value;
 
-    const novoObjetivo = document.createElement('div');
-    novoObjetivo.classList.add('objetivos');
-    novoObjetivo.innerHTML = `<span>${objetivo} - ${pessoa}</span><button class="deletar">x</button>`;
+    const novoObjetivo = criarObjetivoElemento(`${objetivo} - ${pessoa}`);
     listaObjetivos.appendChild(novoObjetivo);
 
     const objetivos = JSON.parse(localStorage.getItem('objetivos')) || [];
     objetivos.push(`${objetivo} - ${pessoa}`);
     localStorage.setItem('objetivos', JSON.stringify(objetivos));
-
-    novoObjetivo.querySelector('.deletar').onclick = function() {
-        const index = objetivos.indexOf(`${objetivo} - ${pessoa}`);
-        if (index !== -1) {
-            objetivos.splice(index, 1);
-            localStorage.setItem('objetivos', JSON.stringify(objetivos));
-            novoObjetivo.remove();
-        }
-    }
 }
