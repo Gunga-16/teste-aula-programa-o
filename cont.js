@@ -13,10 +13,16 @@ window.onload = function() {
 function criarObjetivoElemento(objetivo) {
     const novoObjetivo = document.createElement('div');
     novoObjetivo.classList.add('objetivos');
-    novoObjetivo.innerHTML = `<span>${objetivo.texto}</span>`;
+    novoObjetivo.innerHTML = `<span>${objetivo.texto}</span><button class="deletar">Deletar</button>`;
 
     novoObjetivo.onclick = function() {
         mostrarDescricao(objetivo.descricao);
+    }
+
+    novoObjetivo.querySelector('.deletar').onclick = function(event) {
+        event.stopPropagation(); // Impede que o clique no botão propague para o elemento pai (o objetivo)
+        removerObjetivo(objetivo);
+        novoObjetivo.remove();
     }
 
     return novoObjetivo;
@@ -24,6 +30,15 @@ function criarObjetivoElemento(objetivo) {
 
 function mostrarDescricao(descricaoObjetivo) {
     descricao.innerHTML = `<p>${descricaoObjetivo}</p>`;
+}
+
+function removerObjetivo(objetivo) {
+    const objetivos = JSON.parse(localStorage.getItem('objetivos')) || [];
+    const index = objetivos.findIndex(obj => obj.texto === objetivo.texto);
+    if (index !== -1) {
+        objetivos.splice(index, 1);
+        localStorage.setItem('objetivos', JSON.stringify(objetivos));
+    }
 }
 
 adicionarBotao.onclick = function() {
