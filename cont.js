@@ -9,7 +9,19 @@ adicionarBotao.onclick = function() {
     const objetivo = document.getElementById('objetivo').value;
     const tempo = document.getElementById('tempo').value;
 
-    const novoObjetivo = document.createElement('div');
-    novoObjetivo.innerHTML = `<h3>${pessoa}</h3><p>${objetivo}</p><p>${tempo}</p>`;
+    const novoObjetivo = document.createElement('button');
+    novoObjetivo.classList.add('objetivos');
+    novoObjetivo.innerHTML = `${objetivo} - ${pessoa}`;
     listaObjetivos.appendChild(novoObjetivo);
+
+    novoObjetivo.onclick = function() {
+        for (let j = 0; j < botoes.length; j++) {
+            botoes[j].classList.remove('ativo');
+            texto[j].classList.remove('ativa');
+        }
+        novoObjetivo.classList.add('ativo');
+        // Aqui você pode encontrar o índice do novo botão na lista de botões
+        let index = Array.from(listaObjetivos.children).indexOf(novoObjetivo);
+        texto[index].classList.add('ativa');
+    }
 }
